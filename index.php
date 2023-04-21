@@ -40,7 +40,7 @@ include("header.php");
 ?>
 
 <div class="container">
-   <img src=image/theatre_2.jpg alt="" class="image-resize" style="width: 100%; height: 400px;">
+   <img src="https://img.freepik.com/premium-photo/3d-rendering-empty-dimmy-theatrical-stage-with-red-curtains-drawn-rows-vacant-seats_146508-4872.jpg" alt="" class="image-resize" style="width: 100%; height: 400px;">
 </div>
 
 <div class="container">

@@ -51,8 +51,8 @@ session_start();
                         <ul>
                             <li>
                                 <h4>Surendranagar</h4>
-                                <p>Inox Cinema, Near Upashna Circle, Surendranagar.  <br />+91 187-654-3210
-                                    <br />+91 258-963-1470</p>
+                                <p>E-commerce Cinema  <br />+84 90 359 9593
+                                    <br />+84 90 359 9593/p>
                             </li>
                         
                         </ul>

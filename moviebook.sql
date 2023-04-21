@@ -129,7 +129,7 @@ CREATE TABLE `feedback` (
 --
 
 INSERT INTO `feedback` (`id`, `name`, `email`, `massage`) VALUES
-(1, 'pratik', 'prati@gmail.com', 'Inox Theatre is widely use now days.'),
+(1, 'pratik', 'prati@gmail.com', 'E-commerce Theatre is widely use now days.'),
 (2, 'parth', 'part@gmail.com', 'You can easily book your Tickets anywhere in city .'),
 (3, 'vrushti', 'vrusht@gmail.com', 'you easily choose your sheets.'),
 (4, 'yash', 'yas@gmail.com', 'Also customer service is vary good.');
