@@ -70,7 +70,7 @@ if (!isset($_SESSION['uname'])) {
                    	<th>Payment Date</th><th style="padding: 1px 105px;">Payment Amount</th>
                	  </tr>
                	  <tr>
-               	  	<td><?php echo $row['payment_date'];?></td><td style="padding: 12px 105px;">RS. <?php echo $row['price'];?>/-</td>
+               	  	<td><?php echo $row['payment_date'];?></td><td style="padding: 12px 105px;"> $<?php echo $row['price'];?>/-</td>
                	  </tr>
                    </table>
 

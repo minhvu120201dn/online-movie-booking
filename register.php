@@ -26,17 +26,15 @@ if(in_array($file_extension,$image_ext)){
 		$response=$location;
 	}
 }
-echo $response;
 
 $status=1;
 	$insert_record=mysqli_query($conn,"INSERT INTO user (`username`,`email`,`mobile`,`city`,`password`,`image`)VALUES('".$username."','".$email."','".$mobile."','".$city."','".$password."','".$filename."')");
 	if(!$insert_record){
-		echo "not inserted";
+		echo "Not Success";
 	}
 	else
 	{
-		echo "hii";
-	 //echo "<script>window.location = 'login_form.php';</script>";
+		header("Location: login_form.php&mesage='Success'");
 	}
 
 }
