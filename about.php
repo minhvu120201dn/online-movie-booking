@@ -40,7 +40,7 @@ include("header.php");
       <div>
       	<h2><u>About Us</u></h2>
       </div>
-      <div class="wel_line"><center><h3>WELCOME TO E-COMMERCE THEATER  </h3></center></div>
+      <div class="wel_line"><center><h3>WELCOME TO E-COMMERCE THEATER</h3></center></div>
     </div>
     <div class="row feature design">
 

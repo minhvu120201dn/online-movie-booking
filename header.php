@@ -88,7 +88,7 @@
                         <ul>
                             <li><a href="./index.php">Home</a></li>
                             <li><a href="allmovie.php">All Movie</a></li>
-                            <li><a href="about.php">About US</a></li>
+                            <li><a href="about.php">About Us</a></li>
                             <li><a href="./feedback.php">Feedback</a></li>
                             <li><a href="./contact.php">Contacts</a></li>
                         </ul>

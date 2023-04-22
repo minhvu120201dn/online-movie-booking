@@ -1096,7 +1096,7 @@ div.seatCharts-container {
 	font-weight: bold;
 }
 
-.tiem-link a{
+.item-link a{
 	background-color: #ffffff;
   border: 1px solid #B9B7B7;
   color: white;
@@ -1107,7 +1107,7 @@ div.seatCharts-container {
   display: inline-block;
   border-radius: 5px 5px 5px 5px;
 }
-.tiem-link a:hover, a:active {
+.item-link a:hover, a:active {
   
   color: #0E52FA;
 }

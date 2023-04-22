@@ -50,7 +50,7 @@ include("header.php");
             $id = $row['id'];
         ?>
     <div class="row feature design">
-        <div class="col-lg-5"> <img src="admin/image/<?php echo $row['image']; ?>" class="resize-detail" alt="" width="100%"> </div>
+        <div class="col-lg-5"> <img src="admin/image/<?php echo $row['image']; ?>" class="" alt="" width="100%"> </div>
       <div class="col-lg-7">
         
         <table class="content-table">
@@ -86,57 +86,53 @@ include("header.php");
   </div>
 </div> 
           </tr>
-          
           </tbody>
-            
-          
         </table>
+          
           <?php $description = "No Description...";
           if ($row['description']){
             $description = $row['description'];
           }?>
-        <?php  if($row['action']== "running"){?>
-        <div class="tiem-link">
-          <h4>Show Book Ticket:</h4><br>
-          <?php 
-            $time = $row['show'];
-
-            $movie = $row['movie_name'];
-            $set_time = explode(",", $time);
-            $res = mysqli_query($conn,"SELECT * FROM theater_show");
-
-        if (mysqli_num_rows($res) > 0) {
-          while($row = mysqli_fetch_array($res)) {
-
-            if(in_array($row['show'],$set_time)){
-
-              ?><a href="seatbooking.php?movie=<?php echo $movie; ?>&time=<?php echo $row['show'];?>"><?php echo $row['show'];?></a><?php
-             
-             }
-           }
-         }
-          ?>
-        
-       
+          <div class="description">
+              <h4>Description</h4>
+              <p>
+                  <?php
+                  echo $description;
+                  ?>
+              </p>
+          </div>
       </div>
-      <?php
-}
-      ?>
-      </div>
-      
     </div>
-    <div class="description">
-      <h4>Description</h4>
-      <p>
-        <?php
-          echo $description;
-        ?>
-      </p>
-    </div>
+              <?php  if($row['action']== "running"){?>
+                  <div class="item-link">
+                      <h4>Show Book Ticket:</h4><br>
+                      <?php
+                      $time = $row['show'];
+
+                      $movie = $row['movie_name'];
+                      $set_time = explode(",", $time);
+                      $res = mysqli_query($conn,"SELECT * FROM theater_show");
+
+                      if (mysqli_num_rows($res) > 0) {
+                          while($row = mysqli_fetch_array($res)) {
+
+                              if(in_array($row['show'],$set_time)){
+
+                                  ?><a href="seatbooking.php?movie=<?php echo $movie; ?>&time=<?php echo $row['show'];?>"><?php echo $row['show'];?></a><?php
+
+                              }
+                          }
+                      }
+                      ?>
+                  </div>
+                  <?php
+              }
+              ?>
     <?php
         }
       }
          ?>
+
     </div>
   
 </section>
