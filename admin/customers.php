@@ -26,7 +26,7 @@ if (!isset($_SESSION['admin'])) {
       		<h2>Customers</h2>
       	</div>
         <div class="col-2">
-          <button data-toggle="modal" data-target="#add_custemer_modal" class="btn btn-primary btn-sm">Add Movie</button>
+          <button data-toggle="modal" data-target="#add_customer_modal" class="btn btn-primary btn-sm">Add Movie</button>
         </div>
       </div>
       
@@ -44,14 +44,14 @@ if (!isset($_SESSION['admin'])) {
               <th>Price</th>
               <th>Payment Date</th>
               <th>Booking Date</th>
-              <th>Custemer</th>
+              <th>customer</th>
             </tr>
           </thead>
           <tbody id="customer_list">
            <tbody id="product_list">
             <?php
 include_once 'Database.php';
-$result = mysqli_query($conn,"SELECT c.id,c.movie,c.booking_date,c.show_time,c.seat,c.totalseat,c.price,c.payment_date,c.custemer_id,u.username,t.theater FROM customers c INNER JOIN user u on c.uid = u.id INNER JOIN theater_show t on c.show_time = t.show");
+$result = mysqli_query($conn,"SELECT c.id,c.movie,c.booking_date,c.show_time,c.seat,c.totalseat,c.price,c.payment_date,c.customer_id,u.username,t.theater FROM customers c INNER JOIN user u on c.uid = u.id INNER JOIN theater_show t on c.show_time = t.show");
 
 if (mysqli_num_rows($result) > 0) {
   while($row = mysqli_fetch_array($result)) {
@@ -67,7 +67,7 @@ if (mysqli_num_rows($result) > 0) {
               <td><?php echo $row['totalseat'];?></td>
               <td><?php echo $row['price'];?></td>
               <td><?php echo $row['payment_date'];?></td>
-              <td><?php echo $row['custemer_id'];?></td>
+              <td><?php echo $row['customer_id'];?></td>
                             
             </tr>
             <?php
@@ -83,8 +83,8 @@ if (mysqli_num_rows($result) > 0) {
 
 
 
-<!-- Add custemers Modal start -->
-<div class="modal fade" id="add_custemer_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Add customers Modal start -->
+<div class="modal fade" id="add_customer_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -169,7 +169,7 @@ if (mysqli_num_rows($result) > 0) {
     </div>
   </div>
 </div>
-<!-- Add custemers- Modal end -->
+<!-- Add customers- Modal end -->
 <?php include_once("./templates/footer.php"); ?>
 
 

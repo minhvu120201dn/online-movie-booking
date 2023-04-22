@@ -34,13 +34,13 @@ if (!isset($_SESSION['admin'])) {
         <table class="table table-striped table-sm">
           <thead>
             <tr>
-              <th>id</th>
+              <th>ID</th>
               <th>Name</th>
-              <th>email</th>
-              <th>mobile</th>
-              <th>city</th>
-              <th>password</th>
-              <th>image</th>
+              <th>Email</th>
+              <th>Mobile</th>
+              <th>City</th>
+              <th>Password</th>
+              <th>Image</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -60,15 +60,15 @@ if (mysqli_num_rows($result) > 0) {
               <td><?php echo $row['city'];?></td>
               <td><?php echo $row['password'];?></td>
               <td><img src="image/<?php echo $row['image']; ?>" alt="" class="resize"></td>
-              <td><button data-toggle="modal" type="button" data-target="#edit_users_modal<?php echo $id;?>" class="btn btn-primary btn-sm">Edit Movie</button>
-              <button data-toggle="modal" type="button" data-target="#delete_users_modal<?php echo $id;?>" class="btn btn-danger btn-sm">Delete Movie</button></td></td>
+              <td><button data-toggle="modal" type="button" data-target="#edit_users_modal<?php echo $id;?>" class="btn btn-primary btn-sm">Edit User</button>
+              <button data-toggle="modal" type="button" data-target="#delete_users_modal<?php echo $id;?>" class="btn btn-danger btn-sm">Delete User</button></td></td>
             </tr>
 
  <div class="modal fade" id="delete_users_modal<?php echo $row['id'];?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Delete Movie</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Delete User</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -89,7 +89,7 @@ if (mysqli_num_rows($result) > 0) {
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Edit users</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Edit Users</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

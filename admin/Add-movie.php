@@ -37,9 +37,9 @@ if (!isset($_SESSION['admin'])) {
             <tr>
               <th>id</th>
               <th>Movie name</th>
-              <th>Directer</th>
-              <th>categroy</th>
-              <th>language</th>
+              <th>Director</th>
+              <th>Category</th>
+              <th>Language</th>
               <th>Show</th>
               <th>Image</th>
               <th>Action</th>
@@ -57,8 +57,8 @@ if (mysqli_num_rows($result) > 0) {
     <tr>
               <td><?php echo $row['id'];?></td>
               <td><?php echo $row['movie_name'];?></td>
-              <td><?php echo $row['directer'];?></td>
-              <td><?php echo $row['categroy'];?></td>
+              <td><?php echo $row['director'];?></td>
+              <td><?php echo $row['category'];?></td>
               <td><?php echo $row['language'];?></td>
               
               <td><?php echo $row['show'];?></td>
@@ -110,19 +110,19 @@ if (mysqli_num_rows($result) > 0) {
             </div>
             <div class="col-12">
               <div class="form-group">
-                <label>Directer Name</label>
-                <input class="form-control" name="edit_directer_name" id="edit_directer_name" value="<?php echo $row['directer'];?>">
+                <label>Director Name</label>
+                <input class="form-control" name="edit_director_name" id="edit_director_name" value="<?php echo $row['director'];?>">
               </div>
             </div>
             <div class="col-12">
               <div class="form-group">
-                <label>category</label>
-                <input class="form-control" name="edit_category" id ="edit_category" value="<?php echo $row['categroy']; ?>">
+                <label>Category</label>
+                <input class="form-control" name="edit_category" id ="edit_category" value="<?php echo $row['category']; ?>">
               </div>
             </div>
             <div class="col-12">
               <div class="form-group">
-                <label>language</label>
+                <label>Language</label>
                 <input type="text" name="edit_language" id="edit_language" class="form-control" value="<?php echo $row['language'];?>">
               </div>
             </div>
@@ -150,8 +150,8 @@ if (mysqli_num_rows($result) > 0) {
             </div>
              <div class="col-12">
               <div class="form-group">
-                <label>Tailer</label>
-                <input type="text" name="edit_tailer" id="edit_tailer" class="form-control" value="<?php echo $row['you_tube_link'];?>">
+                <label>Trailer</label>
+                <input type="text" name="edit_trailer" id="edit_trailer" class="form-control" value="<?php echo $row['youtube_link'];?>">
               </div>
             </div>
              <div class="col-12">
@@ -166,11 +166,11 @@ if (mysqli_num_rows($result) > 0) {
             </div>
             <div class="col-12">
               <div class="form-group">
-                <label>Decription</label>
-                <textarea type="text" name="decription" id="decription" class="form-control" value="<?php echo $row['decription'];?>">
-                <?php echo $row['decription'];?></textarea>
+                <label>Description</label>
+                <textarea type="text" name="description" id="description" class="form-control" value="<?php echo $row['description'];?>">
+                <?php echo $row['description'];?></textarea>
               </div>
-            </div>       
+            </div>
             <div class="col-12">
               <div class="form-group">
                 <label>Set of Time</label>
@@ -228,14 +228,14 @@ if (mysqli_num_rows($result) > 0) {
         		</div>
             <div class="col-12">
               <div class="form-group">
-                <label>Directer Name</label>
-                <input class="form-control" name="directer_name" id="directer_name" placeholder="Directer name">
+                <label>director Name</label>
+                <input class="form-control" name="director_name" id="director_name" placeholder="director name">
               </div>
             </div>
             <div class="col-12">
               <div class="form-group">
                 <label>Release Date</label>
-                <input class="form-control" name="release_date" id="release_date" placeholder="Directer name">
+                <input class="form-control" name="release_date" id="release_date" placeholder="director name">
               </div>
             </div>
       
@@ -294,8 +294,8 @@ if (mysqli_num_rows($result) > 0) {
             </div>
             <div class="col-12">
               <div class="form-group">
-                <label>Tailer</label>
-                <input type="text" name="tailer" id="tailer" class="form-control" placeholder="Enter Tailer">
+                <label>trailer</label>
+                <input type="text" name="trailer" id="trailer" class="form-control" placeholder="Enter trailer">
               </div>
             </div>
              <div class="col-12">
@@ -310,8 +310,8 @@ if (mysqli_num_rows($result) > 0) {
             </div>
             <div class="col-12">
               <div class="form-group">
-                <label>Decription</label>
-                <textarea type="text" name="decription" id="decription" class="form-control">
+                <label>description</label>
+                <textarea type="text" name="description" id="description" class="form-control">
                 </textarea>
               </div>
             </div>
@@ -344,14 +344,14 @@ if (mysqli_num_rows($result) > 0) {
 <script>  
 function validateform(){  
 var name=document.myform.movie_name.value;  
-var directer=document.myform.directer_name.value;  
+var director=document.myform.director_name.value;  
   
 
 if (name==""){  
   alert("Requre Movie Name");  
   return false;  
-}else if(directer==""){  
-  alert("Requre Directer Name");  
+}else if(director==""){  
+  alert("Requre director Name");  
   return false;  
   }  
 }

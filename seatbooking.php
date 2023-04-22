@@ -76,7 +76,8 @@
         echo $row['seat'];
         echo ",";
       }?>">
-      <center><input type="submit" name="submit" class="btn btn-primary" value="Check Avaliable Seat"></center></form>
+      <center><input type="submit" name="submit" class="btn btn-primary" value="Check Avaliable Seat"></center>
+        </form>
       <hr>
 
 <form action="payment.php" method="post">
@@ -749,7 +750,7 @@
                 <td bgcolor="ECF68C"><center><font size=5 style="font-family: Shruti;"><?php echo $_GET['time'];?></font></center></td>
             </tr>
             <tr><td width="50%"><font color="blue" size="5px" style="font-family: Shruti;">Seat:</font></td>
-                <td> <input type="text" id="selectedtext" name="seats" placeholder="selected checkboxs"></td>
+                <td> <input type="text" id="selectedtext" name="seats" placeholder="Selected checkboxs"></td>
             </tr>
             <tr><td width="50%"><font color="blue" size="5px"style="font-family: Shruti;">Total Seat:</font></td>
                <td> <input type="text" id="count" name="totalseat" placeholder="Total Seats"></td>
@@ -762,10 +763,10 @@ if (!isset($_SESSION['uname'])) {
   ?>
 <div class="col-lg-12">
             <div class="form-group">
-                     <a data-toggle="modal" data-target="#tailer_modal" class="form-control btn btn-primary py-2"><font style="color:white;">Payment Now</a>
+                     <a data-toggle="modal" data-target="#trailer_modal" class="form-control btn btn-primary py-2"><font style="color:white;">Payment Now</a>
                   </div>
     </div>
-      <div class="modal fade" id="tailer_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade" id="trailer_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <h3>You need to login</h3>
@@ -776,10 +777,10 @@ if (!isset($_SESSION['uname'])) {
   <?php
 }else{
 ?>
-   <div class="col-lg-12">
-            <div class="form-group">
-                    <input type="submit" value="Payment Now" name="submit" class="form-control btn btn-primary py-2">
-                  </div>
+    <div class="col-lg-12">
+        <div class="form-group">
+            <input type="submit" value="CHECKOUT NOW" name="submit" class="form-control btn btn-danger py-2">
+        </div>
     </div>
 
 

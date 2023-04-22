@@ -71,10 +71,10 @@ if (!isset($_SESSION['uname'])) {
   ?>
 <div class="col-lg-12">
             <div class="form-group">
-                     <button type="button" data-toggle="modal" data-target="#tailer_modal" class="btn btn-dark"><font style="color:white;">Send Massage</font></button>
+                     <button type="button" data-toggle="modal" data-target="#trailer_modal" class="btn btn-dark"><font style="color:white;">Send Massage</font></button>
                   </div>
     </div>
-      <div class="modal fade" id="tailer_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade" id="trailer_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <h3>You need to login</h3>

@@ -168,7 +168,7 @@ if (!isset($_SESSION['uname'])) {
                                     </div>
                                     <div class="col-sm-4">
                                         <div class="form-group mb-4"> <label data-toggle="tooltip" title="Three digit CV code on the back of your card">
-                                                <h6>CVV </h6>
+                                                <h6>CVV</h6>
                                             </label> <input type="number" id="cvv" class="form-control"> </div>
                                             <div id="validatecvv"></div>
                                     </div>
@@ -183,8 +183,12 @@ if (!isset($_SESSION['uname'])) {
                                 </div>
                             </div>
                                 <div id="msg"></div>
-                                <div class="card-footer"> <button type="submit" id="payment" class="subscribe btn btn-primary btn-block shadow-sm"> Confirm Payment </button>
-
+                                <div class="card-footer">
+                                    <button type="submit" id="payment" class="subscribe btn btn-primary btn-block shadow-sm"> Confirm Payment </button>
+                                    <br>
+                                    <h6>Other method</h6>
+                                    <!-- Set up a container element for the button -->
+                                    <div id="paypal-button-container"></div>
                                 </div>
                             
                         </div>
@@ -259,7 +263,9 @@ if (!isset($_SESSION['uname'])) {
             },
       success:function(response){
           if(response == 1){
-                                    window.location = "tickes.php";
+              window.location = "ticket_show.php";
+              // send notification "Congratulation! Your order has been placed successfully."
+                window.alert("Congratulation! Your order has been placed successfully.");
                                 }else{
                                      error = " <font color='red'>!Invalid UserId.</font> ";
                                      document.getElementById( "msg" ).innerHTML = error;
@@ -271,5 +277,57 @@ if (!isset($_SESSION['uname'])) {
   });
 });
 </script>
+
+    <!-- Replace "test" with your own sandbox Business account app client ID -->
+    <script src="https://www.paypal.com/sdk/js?client-id=AVYAdu2PHLyRWRKSPuXIPmTxrB9AYLSFKW9QkNobwkKsyanBs7P8YQTQDseURlkGlqzWfar_QXWtL4iF&currency=USD"></script>
+    <script>
+        paypal.Buttons({
+            // Order is created on the server and the order id is returned
+            createOrder() {
+                return fetch("/my-server/create-paypal-order", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    // use the "body" param to optionally pass additional order information
+                    // like product skus and quantities
+                    body: JSON.stringify({
+                        cart: [
+                            {
+                                sku: "YOUR_PRODUCT_STOCK_KEEPING_UNIT",
+                                quantity: "YOUR_PRODUCT_QUANTITY",
+                            },
+                        ],
+                    }),
+                })
+                    .then((response) => response.json())
+                    .then((order) => order.id);
+            },
+            // Finalize the transaction on the server after payer approval
+            onApprove(data) {
+                return fetch("/my-server/capture-paypal-order", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        orderID: data.orderID
+                    })
+                })
+                    .then((response) => response.json())
+                    .then((orderData) => {
+                        // Successful capture! For dev/demo purposes:
+                        console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+                        const transaction = orderData.purchase_units[0].payments.captures[0];
+                        alert(`Transaction ${transaction.status}: ${transaction.id}\n\nSee console for all available details`);
+                        // When ready to go live, remove the alert and show a success message within this page. For example:
+                        // const element = document.getElementById('paypal-button-container');
+                        // element.innerHTML = '<h3>Thank you for your payment!</h3>';
+                        // Or go to another URL:  window.location.href = 'thank_you.html';
+                    });
+            }
+        }).render('#paypal-button-container');
+    </script>
+
    </body>
 </html>

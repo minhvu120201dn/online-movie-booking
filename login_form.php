@@ -32,7 +32,7 @@
 						<td><b>Password:</b></td>
 					</tr>
 					<tr>
-						<td><input type="text" class="inputbox" id="password" />
+						<td><input type="password" class="inputbox" id="password" />
               <br><p id="passerror"></p><div id="msg"></div> </td>
             
 					</tr>

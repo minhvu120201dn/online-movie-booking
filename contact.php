@@ -50,9 +50,9 @@ session_start();
                         </div>
                         <ul>
                             <li>
-                                <h4>Surendranagar</h4>
-                                <p>E-commerce Cinema  <br />+84 90 359 9593
-                                    <br />+84 90 359 9593/p>
+                                <h4>E-Commerce Cinema</h4>
+                                <p>Customer Service: <br />+84 90 359 9593
+                                    <br />+84 90 359 9593</p>
                             </li>
                         
                         </ul>

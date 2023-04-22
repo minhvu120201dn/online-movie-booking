@@ -30,14 +30,14 @@ SET time_zone = "+00:00";
 CREATE TABLE `add_movie` (
   `id` int(25) NOT NULL,
   `movie_name` varchar(100) NOT NULL,
-  `directer` varchar(100) NOT NULL,
+  `director` varchar(100) NOT NULL,
   `release_date` varchar(100) NOT NULL,
-  `categroy` varchar(100) NOT NULL,
+  `category` varchar(100) NOT NULL,
   `language` varchar(100) NOT NULL,
-  `you_tube_link` varchar(250) NOT NULL,
+  `youtube_link` varchar(250) NOT NULL,
   `show` varchar(100) NOT NULL,
   `action` varchar(100) NOT NULL,
-  `decription` varchar(300) NOT NULL,
+  `description` varchar(300) NOT NULL,
   `image` varchar(100) NOT NULL,
   `status` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -46,14 +46,14 @@ CREATE TABLE `add_movie` (
 -- Dumping data for table `add_movie`
 --
 
-INSERT INTO `add_movie` (`id`, `movie_name`, `directer`, `release_date`, `categroy`, `language`, `you_tube_link`, `show`, `action`, `decription`, `image`, `status`) VALUES
-(7, 'Avengers', 'Kevin Feige', 'April 11, 2012', 'Science', 'English', 'https://www.youtube.com/embed/eOrNdBpGMv8', '21:00', 'running', '...', 'aven.jpg', 1),
+INSERT INTO `add_movie` (`id`, `movie_name`, `director`, `release_date`, `category`, `language`, `youtube_link`, `show`, `action`, `description`, `image`, `status`) VALUES
+(7, 'Avengers: Endgame', 'Anthony Russo', 'April 11, 2012', 'Science', 'English', 'https://www.youtube.com/embed/eOrNdBpGMv8', '21:00', 'running', '', 'aven.jpg', 1),
 (9, 'Rampage', 'Brad Peyton', '13 April 2018', 'Adventure ', 'English', '', '', 'upcoming', 'Jumanji is a 1995 American fantasy adventure film directed by Joe Johnston from a screenplay by Jonathan Hensleigh, Greg Taylor, and Jim Strain. Loosely based on Chris Van Allsburg\'s picture book of the same name, the film is the first installment of the Jumanji franc', 'rampage.jpg', 1),
-(10, 'Playing With Fire', 'Andrea Sedlackova', '6 November 2019', 'Comedy', 'English', 'https://www.youtube.com/embed/fd5GlZUpfaM', '21:15', 'running', 'Playing with Fire is a 2019 American family comedy film directed by Andy Fickman from a screenplay by Dan Ewen and Matt Lieberman based on a story by Ewen. The film stars John Cena, Keegan-Michael Key, John Leguizamo, Dennis Haysbert, Brianna Hildebrand and Judy Greer, and follows a ', 'movieposter_en.jpg', 1),
-(11, 'The Super Mario Bros. Movie', '--', 'April 7, 2023', 'Animation', 'English', 'https://www.youtube.com/embed/TnGl01FkMMo', '15:00', 'running', '...', 'mario.jpg', 1),
-(13, 'The Angry Birds Movie 2', '--', 'August 14, 2019', 'Animation', 'English', 'https://www.youtube.com/embed/LLLPH6DgMB4', '18:00', 'running', '...', 'angry-birds-2.jpg', 1),
-(15, 'Elemental', 'Peter Sohn', 'June 16, 2023', 'Adventure', 'English', 'https://www.youtube.com/embed/hXzcyx9V0xw', '', 'upcoming', '...', 'elemental.jpg', 1),
-(17,'Spider-Man: Across the Spider-Verse', '--', 'June 2, 2023', 'Science', 'English', 'https://www.youtube.com/embed/kJrYAZNETpM', '', 'upcoming', '...', 'spiderman.jpg', 1);
+(10, 'Playing With Fire', 'Andy Fickman', '6 November 2019', 'Comedy', 'English', 'https://www.youtube.com/embed/fd5GlZUpfaM', '21:15', 'running', 'Playing with Fire is a 2019 American family comedy film directed by Andy Fickman from a screenplay by Dan Ewen and Matt Lieberman based on a story by Ewen. The film stars John Cena, Keegan-Michael Key, John Leguizamo, Dennis Haysbert, Brianna Hildebrand and Judy Greer, and follows a ', 'playwithfire.jpg', 1),
+(11, 'The Super Mario Bros. Movie', '--', 'April 7, 2023', 'Animation', 'English', 'https://www.youtube.com/embed/TnGl01FkMMo', '15:00', 'running', '', 'mario.jpg', 1),
+(13, 'The Angry Birds Movie 2', '--', 'August 14, 2019', 'Animation', 'English', 'https://www.youtube.com/embed/RSKQ-lVsMdg', '18:00', 'running', '', 'angry-birds-2.jpg', 1),
+(15, 'Elemental', 'Peter Sohn', 'June 16, 2023', 'Adventure', 'English', 'https://www.youtube.com/embed/hXzcyx9V0xw', '', 'upcoming', '', 'elemental.jpg', 1),
+(17,'Spider-Man: Across the Spider-Verse', '--', 'June 2, 2023', 'Science', 'English', 'https://www.youtube.com/embed/kJrYAZNETpM', '', 'upcoming', '', 'spiderman.jpg', 1);
 -- --------------------------------------------------------
 
 --
@@ -97,14 +97,14 @@ CREATE TABLE `customers` (
   `card_number` varchar(25) NOT NULL,
   `ex_date` varchar(100) NOT NULL,
   `cvv` int(5) NOT NULL,
-  `custemer_id` int(15) NOT NULL
+  `customer_id` int(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `customers`
 --
 
-INSERT INTO `customers` (`id`, `uid`, `movie`, `show_time`, `seat`, `totalseat`, `price`, `payment_date`, `booking_date`, `card_name`, `card_number`, `ex_date`, `cvv`, `custemer_id`) VALUES
+INSERT INTO `customers` (`id`, `uid`, `movie`, `show_time`, `seat`, `totalseat`, `price`, `payment_date`, `booking_date`, `card_name`, `card_number`, `ex_date`, `cvv`, `customer_id`) VALUES
 (1, 1, 'Chaal Jeevi Laiye', '15:00', 'G1,G2,D1,D2', '4', '500', 'Wed-09-21 ', 'Thu-09-21 ', 'pratik d', '7896', '2021-09-30', 789, 1869901767),
 (2, 1, 'Tanaji', '15:15', 'F7,F8,E7,E8,A7,A8', '6', '1200', 'Thu-09-21 ', 'Fri-09-21 ', 'pratik d', '145260', '2021-09-30', 349, 1890244096),
 (3, 2, 'Chaal Jeevi Laiye', '15:00', 'I5,I6,H5,H6,G5,G6', '6', '600', 'Thu-09-21 ', 'Fri-09-21 ', 'parthiv', '45456845565', '2021-10-23', 455, 560041981),

@@ -55,7 +55,7 @@ include("header.php");
         
         <table class="content-table">
           <thead><tr>
-            <th colspan="2">Movie Deatils</th>
+            <th colspan="2">Movie Details</th>
           </tr>
         </thead>
        
@@ -67,21 +67,21 @@ include("header.php");
             <td>Release Date</td><td><?php echo $row['release_date'];?></td>
           </tr>
           <tr>
-            <td>Directer Name</td><td><?php echo $row['directer'];?></td>
+            <td>Director Name</td><td><?php echo $row['director'];?></td>
           </tr>
           <tr>
-            <td>Category</td><td><?php echo $row['categroy'];?></td>
+            <td>Category</td><td><?php echo $row['category'];?></td>
           </tr>
           <tr>
             <td>Language</td><td><?php echo $row['language'];?></td>
           </tr>
          
           <tr>
-            <td>Tailer</td><td><a data-toggle="modal" data-target="#tailer_modal<?php echo $row['id'];?>">Veiw Tailer</a></td>
-            <div class="modal fade" id="tailer_modal<?php echo $row['id'];?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <td>Trailer</td><td><a data-toggle="modal" data-target="#trailer_modal<?php echo $row['id'];?>">View Trailer</a></td>
+            <div class="modal fade" id="trailer_modal<?php echo $row['id'];?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <embed style="width: 820px; height: 450px;" src="<?php echo $row['you_tube_link'];?>"></embed>
+      <embed style="width: 820px; height: 450px;" src="<?php echo $row['youtube_link'];?>"></embed>
     </div>
   </div>
 </div> 
@@ -124,7 +124,12 @@ include("header.php");
     <div class="description">
       <h4>Description</h4>
       <p>
-        Jeff Lang (Tobey Maguire), an OBGYN, and his wife Nealy (Elizabeth Banks), who owns a small shop, live in Seattle with their two-year-old son named Miles. Considering a second child, they decide to enlarge their small home and lay expensive new grass in their backyard. Worms in the grass attract raccoons, who destroy the grass, and Jeff goes to great lengths to get rid of the raccoons, mixing poison with a can of tuna. Their neighbor Lila (Laura Linney) tells Jeff that her cat Matthew is missing, and Jeff does not yet realize he may be responsible.
+        <?php if ($row['description']=="..."){
+            echo "No Description";
+        } else{
+          echo $row['description'];
+        }
+        ?>
       </p>
     </div>
     <?php

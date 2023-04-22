@@ -4,13 +4,13 @@ include_once("Database.php");
 if (isset($_POST['submit']))
  {
  	$movie_name= mysqli_real_escape_string($conn,$_POST['movie_name']);
- 	$directer_name= mysqli_real_escape_string($conn,$_POST['directer_name']);
+ 	$director_name= mysqli_real_escape_string($conn,$_POST['director_name']);
 	$release_date= mysqli_real_escape_string($conn,$_POST['release_date']);
-	$categroy= mysqli_real_escape_string($conn,$_POST['category']);
+	$category= mysqli_real_escape_string($conn,$_POST['category']);
 	$language= mysqli_real_escape_string($conn,$_POST['language']);
-	$tailer= mysqli_real_escape_string($conn,$_POST['tailer']);
+	$trailer= mysqli_real_escape_string($conn,$_POST['trailer']);
 	$action= mysqli_real_escape_string($conn,$_POST['action']);
-	$decription= mysqli_real_escape_string($conn,$_POST['decription']);
+	$description= mysqli_real_escape_string($conn,$_POST['description']);
 	$show= mysqli_real_escape_string($conn,implode(',',$_POST['show']));
 	$filename=$_FILES['img']['name'];
 
@@ -32,7 +32,7 @@ if(in_array($file_extension,$image_ext)){
 echo $response;
 
 $status=1;
-	$insert_record=mysqli_query($conn,"INSERT INTO add_movie (`movie_name`,`directer`,`release_date`,`categroy`,`language`,`you_tube_link`,`action`,`decription`,`show`,`image`,`status`)VALUES('".$movie_name."','".$directer_name."','".$release_date."','".$categroy."','".$language."','".$tailer."','".$action."','".$decription."','".$show."','".$filename."','".$status."')");
+	$insert_record=mysqli_query($conn,"INSERT INTO add_movie (`movie_name`,`director`,`release_date`,`category`,`language`,`youtube_link`,`action`,`description`,`show`,`image`,`status`)VALUES('".$movie_name."','".$director_name."','".$release_date."','".$category."','".$language."','".$trailer."','".$action."','".$description."','".$show."','".$filename."','".$status."')");
 	if(!$insert_record){
 	 	echo "unsuccesfull";
 	}
@@ -51,12 +51,12 @@ if (isset($_POST['updatemovie']))
  {
  	$e_id= mysqli_real_escape_string($conn,$_POST['e_id']);
  	$edit_movie_name= mysqli_real_escape_string($conn,$_POST['edit_movie_name']);
- 	$edit_directer_name= mysqli_real_escape_string($conn,$_POST['edit_directer_name']);	
-	$edit_categroy= mysqli_real_escape_string($conn,$_POST['edit_category']);
+ 	$edit_director_name= mysqli_real_escape_string($conn,$_POST['edit_director_name']);	
+	$edit_category= mysqli_real_escape_string($conn,$_POST['edit_category']);
 	$edit_language= mysqli_real_escape_string($conn,$_POST['edit_language']);
-	$tailer= mysqli_real_escape_string($conn,$_POST['edit_tailer']);
+	$trailer= mysqli_real_escape_string($conn,$_POST['edit_trailer']);
 	$action= mysqli_real_escape_string($conn,$_POST['edit_action']);
-	$decription= mysqli_real_escape_string($conn,$_POST['decription']);
+	$description= mysqli_real_escape_string($conn,$_POST['description']);
 	$edit_show= mysqli_real_escape_string($conn,implode(',',$_POST['show']));
 	$edit_old_image= mysqli_real_escape_string($conn,$_POST['old_image']);
 	$edit_filename=$_FILES['edit_img']['name'];
@@ -87,7 +87,7 @@ echo $response;
 
 
 
-		$insert_record=mysqli_query($conn, "UPDATE `add_movie` SET `movie_name` = '$edit_movie_name', `directer` = '$edit_directer_name', `categroy` = '$edit_categroy', `language` = '$edit_language',`you_tube_link` = '$tailer',`action` = '$action',`decription` = '$decription', `show` = '$edit_show', `image` = '$image' WHERE `id` = '$e_id'"); 
+		$insert_record=mysqli_query($conn, "UPDATE `add_movie` SET `movie_name` = '$edit_movie_name', `director` = '$edit_director_name', `category` = '$edit_category', `language` = '$edit_language',`youtube_link` = '$trailer',`action` = '$action',`description` = '$description', `show` = '$edit_show', `image` = '$image' WHERE `id` = '$e_id'"); 
 
 	if(!$insert_record){
 	 	echo "unsuccesfull";
@@ -336,12 +336,12 @@ if (isset($_POST['deleteuser']))
  	$price= mysqli_real_escape_string($conn,$_POST['price']);
  
 
- 	$custemer_id= mt_rand();
+ 	$customer_id= mt_rand();
     $payment = date("D-m-y ",strtotime('today'));
     $booking = date("D-m-y ",strtotime('tomorrow'));
 
 $status=1;
-	$insert_record=mysqli_query($conn,"INSERT INTO customers (`uid`,`movie`,`show_time`,`seat`,`totalseat`,`price`,`payment_date`,`booking_date`,`custemer_id`)VALUES('".$username_id."','".$movie."','".$show_time."','".$seat."','".$totalseat."','".$price."','".$payment."','".$booking."','".$custemer_id."')");
+	$insert_record=mysqli_query($conn,"INSERT INTO customers (`uid`,`movie`,`show_time`,`seat`,`totalseat`,`price`,`payment_date`,`booking_date`,`customer_id`)VALUES('".$username_id."','".$movie."','".$show_time."','".$seat."','".$totalseat."','".$price."','".$payment."','".$booking."','".$customer_id."')");
 	if(!$insert_record){
 	 	echo "hii";
 	}
