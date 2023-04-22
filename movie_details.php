@@ -91,6 +91,10 @@ include("header.php");
             
           
         </table>
+          <?php $description = "No Description...";
+          if ($row['description']){
+            $description = $row['description'];
+          }?>
         <?php  if($row['action']== "running"){?>
         <div class="tiem-link">
           <h4>Show Book Ticket:</h4><br>
@@ -124,11 +128,8 @@ include("header.php");
     <div class="description">
       <h4>Description</h4>
       <p>
-        <?php if ($row['description']=="..."){
-            echo "No Description";
-        } else{
-          echo $row['description'];
-        }
+        <?php
+          echo $description;
         ?>
       </p>
     </div>
