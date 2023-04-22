@@ -50,7 +50,7 @@ include("header.php");
             $id = $row['id'];
         ?>
     <div class="row feature design">
-        <div class="col-lg-5"> <img src="admin/image/<?php echo $row['image']; ?>" class="" alt="" width="100%"> </div>
+        <div class="col-lg-5"> <img src="admin/image/<?php echo $row['image']; ?>" class="resize-detail" alt="" width="100%"> </div>
       <div class="col-lg-7">
         
         <table class="content-table">
