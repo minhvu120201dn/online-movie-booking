@@ -42,7 +42,7 @@ if (!isset($_SESSION['uname'])) {
                 ?>
                     <table>
                         <tr>
-                        <td>+91 846050 2720</td>
+                        <td>+84 846050 2720</td>
                         <td style="padding: 12px 2px 12px 155px;">Custemer Id: <?php echo $row['custemer_id'];?></td>
                     </tr>
                     <tr>
