@@ -35,42 +35,42 @@ if (!isset($_SESSION['uname'])) {
                     <h6> Near Upansna Circle, Surendranagar</h6></center>
                     <?php 
                   include "Database.php";
-                  $result = mysqli_query($conn,"SELECT c.movie,c.booking_date,c.show_time,c.seat,c.totalseat,c.price,c.payment_date,c.custemer_id,u.username,u.email,u.mobile,u.city,t.theater FROM customers c INNER JOIN user u on c.uid=u.id INNER JOIN theater_show t on c.show_time=t.show WHERE custemer_id = '".$_SESSION['custemer_id']."'");
+                  $result = mysqli_query($conn,"SELECT c.movie,c.booking_date,c.show_time,c.seat,c.totalseat,c.price,c.payment_date,c.custemer_id,u.username,u.email,u.mobile,u.city,t.theater FROM customers c INNER JOIN user u on c.uid=u.id INNER JOIN theater_show t on c.show_time=t.show WHERE custemer_id = '".$_SESSION['ticket_info']['customer_id']."'");
                   
-                  $row = mysqli_fetch_array($result);
+                //   $row = mysqli_fetch_array($result);
                  
                 ?>
                     <table>
                         <tr>
                         <td>+84 846050 2720</td>
-                        <td style="padding: 12px 2px 12px 155px;">Custemer Id: <?php echo $row['custemer_id'];?></td>
+                        <td style="padding: 12px 2px 12px 155px;">Customer Id: <?php echo $_SESSION['ticket_info']['customer_id'];?></td>
                     </tr>
                     <tr>
-                        <td></td><td style="padding: 1px 2px 1px 155px;">Date: <?php echo $row['payment_date'];?></td>
+                        <td></td><td style="padding: 1px 2px 1px 155px;">Date: <?php echo $_SESSION['ticket_info']['time'];?></td>
                     </tr>
                     </table>
                     <hr>
                     
-                    <center><h3>Movie Name: <?php echo $row['movie'];?></h3></center>
+                    <center><h3>Movie Name: <?php echo $_SESSION['ticket_info']['movie'];?></h3></center>
 
                    <table>
                    	<tr>
                    	<th>Name</th><th style="padding: 1px 105px;">City</th>
                    </tr>
                    <tr>
-                   	<td><?php echo $row['username'];?></td><td style="padding: 12px 105px;"><?php echo $row['city'];?></td>
+                   	<td><?php echo $_SESSION['ticket_info']['uname'];?></td><td style="padding: 12px 105px;"><?php echo $_SESSION['ticket_info']['city'];?></td>
                    </tr>
                    <tr>
                    	<th>Email</th><th style="padding: 1px 105px;">Phone</th>
                    </tr>
                    <tr>
-                   	<td><?php echo $row['email'];?></td><td style="padding: 12px 105px;"><?php echo $row['mobile'];?></td>
+                   	<td><?php echo $_SESSION['ticket_info']['email'];?></td><td style="padding: 12px 105px;"><?php echo $_SESSION['ticket_info']['mobile'];?></td>
                    </tr>
                    <tr>
                    	<th>Payment Date</th><th style="padding: 1px 105px;">Payment Amount</th>
                	  </tr>
                	  <tr>
-               	  	<td><?php echo $row['payment_date'];?></td><td style="padding: 12px 105px;"> $<?php echo $row['price'];?>/-</td>
+               	  	<td><?php echo $_SESSION['ticket_info']['time'];?></td><td style="padding: 12px 105px;"> $<?php echo $_SESSION['ticket_info']['price'];?>/-</td>
                	  </tr>
                    </table>
 

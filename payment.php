@@ -6,6 +6,7 @@ if (!isset($_SESSION['uname'])) {
 
 require 'vendor/autoload.php';
 require 'paypal.php';
+require 'Database.php';
 
 use PayPal\Api\Payer;
 use PayPal\Api\Item;
@@ -64,7 +65,8 @@ if (isset($_POST['submit'])) {
         }
     }
 
-    $result = mysqli_query($conn,"SELECT u.username,u.email,u.mobile,u.city,t.theater FROM user u INNER JOIN theater_show t on u.username = '".$username."' WHERE t.show = '".$show."'");
+    $username = $_SESSION['uname'];
+    $result = mysqli_query($conn,"SELECT u.uid, u.username,u.email,u.mobile,u.city,t.theater FROM user u INNER JOIN theater_show t on u.username = '".$username."' WHERE t.show = '".$show."'");
     $row = mysqli_fetch_array($result);
     $movie_name = $_POST['movie'];
     $theater = $row['theater'];
@@ -102,8 +104,8 @@ $transaction->setAmount($amount)
     ->setInvoiceNumber(uniqid());
 
 $redirectUrls = new RedirectUrls();
-$redirectUrls->setReturnUrl('ticket_show.php')
-    ->setCancelUrl('seatbooking.php');
+$redirectUrls->setReturnUrl('https://localhost/online-movie-booking/ticket_show.php')
+    ->setCancelUrl('https://localhost/online-movie-booking/seatbooking.php');
 
 $payment = new Payment();
 $payment->setIntent('sale')
@@ -122,11 +124,16 @@ try {
 }
 
 $_SESSION['ticket_info'] = array();
+$_SESSION['ticket_info']['customer_id'] = $row['uid'];
 $_SESSION['ticket_info']['theater'] = $row['theater'];
 $_SESSION['ticket_info']['movie'] = $movie_name;
 $_SESSION['ticket_info']['seats'] = $seats1;
 $_SESSION['ticket_info']['total_seat'] = $_POST['totalseat'];
 $_SESSION['ticket_info']['time'] = $_POST['show'];
+$_SESSION['ticket_info']['city'] = $row['city'];
+$_SESSION['ticket_info']['email'] = $row['email'];
+$_SESSION['ticket_info']['mobile'] = $row['mobile'];
+$_SESSION['ticket_info']['price'] = $Ctickets*$CticketPrice+$VIPtickets*$VIPticketPrice;
 
 $approvalUrl = $payment->getApprovalLink();
 header("Location: {$approvalUrl}");
